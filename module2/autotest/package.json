@@ -1,0 +1,10 @@
+{
+  "name": "untitled1",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "consola": "^2.15.3",
+    "indicative": "^7.4.4"
+  }
+}

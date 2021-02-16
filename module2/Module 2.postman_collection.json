@@ -1,0 +1,364 @@
+{
+	"info": {
+		"_postman_id": "8f608920-759c-4a81-a4bb-464c4071102d",
+		"name": "Module 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Registration",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "Валерий",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "Жмышенко",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "88005553535",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "document_number",
+									"value": "7788223311",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d488c783-524a-41ec-b2b6-9ca2c0b9c1c0",
+								"exec": [
+									"pm.environment.set(\"token\", pm.response.json().data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone",
+									"value": "88005553535",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User's Bookings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/user/booking",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"booking"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Stations",
+			"item": [
+				{
+					"name": "Stations search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/station?query=Kr",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"station"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Kr"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "Booking",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dispatch_from\": {\r\n        \"id\": 1,\r\n        \"date\": \"2020-10-01\"\r\n    },\r\n    \"dispatch_back\": {\r\n        \"id\": 2,\r\n        \"date\": \"2020-10-10\"\r\n    },\r\n    \"passengers\": [\r\n        {\r\n            \"first_name\": \"Иван\",\r\n            \"last_name\": \"Иванов\",\r\n            \"birth_date\": \"1990-02-20\",\r\n            \"document_number\": \"7788223311\"\r\n        },\r\n        {\r\n            \"first_name\": \"Анна\",\r\n            \"last_name\": \"Петрова\",\r\n            \"birth_date\": \"1992-09-22\",\r\n            \"document_number\": \"9922335577\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/booking",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Booking",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/booking/FNOO4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"booking",
+								"FNOO4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Seat",
+			"item": [
+				{
+					"name": "Seat Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/booking/7D0NX/seat",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"booking",
+								"7D0NX",
+								"seat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Seat",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"passenger\": 1,\r\n    \"seat\": \"3D\",\r\n    \"type\": \"back\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/booking/7D0NX/seat",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"booking",
+								"7D0NX",
+								"seat"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Dispatches",
+			"item": [
+				{
+					"name": "Dispatches search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/dispatch?from=1&to=2&date1=2020-10-01&date2=2020-10-10&passengers=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"dispatch"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "1"
+								},
+								{
+									"key": "to",
+									"value": "2"
+								},
+								{
+									"key": "date1",
+									"value": "2020-10-01"
+								},
+								{
+									"key": "date2",
+									"value": "2020-10-10"
+								},
+								{
+									"key": "passengers",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
