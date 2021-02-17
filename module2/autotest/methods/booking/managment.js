@@ -70,7 +70,7 @@ export default async () => {
         log.success('Информация о бронировании. A11S3 Correct body');
 
     } catch (e) {
-        log.error('Информация о бронировании. A11S2 Correct body');
+        log.error('Информация о бронировании. A11S2 Correct body', e);
         log.error('Информация о бронировании. A11S3 Correct body');
     }
 };

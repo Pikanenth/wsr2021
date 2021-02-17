@@ -64,13 +64,13 @@ export default async () => {
             'data.items.*.dispatches.*.to.date': 'required',
             'data.items.*.dispatches.*.to.time': 'required',
             'data.items.*.dispatches.*.cost': 'required',
-            'data.items.*.dispatches.*.passengers': 'required|array',
-            'data.items.*.dispatches.*.passengers.0': 'required',
-            'data.items.*.dispatches.*.passengers.*.id': 'required',
-            'data.items.*.dispatches.*.passengers.*.first_name': 'required',
-            'data.items.*.dispatches.*.passengers.*.last_name': 'required',
-            'data.items.*.dispatches.*.passengers.*.birth_date': 'required',
-            'data.items.*.dispatches.*.passengers.*.document_number': 'required',
+            'data.items.*.passengers': 'required|array',
+            'data.items.*.passengers.0': 'required',
+            'data.items.*.passengers.*.id': 'required',
+            'data.items.*.passengers.*.first_name': 'required',
+            'data.items.*.passengers.*.last_name': 'required',
+            'data.items.*.passengers.*.birth_date': 'required',
+            'data.items.*.passengers.*.document_number': 'required',
         });
 
         log.success('Получение своих бронирований. A16S2 Success. Correct body');

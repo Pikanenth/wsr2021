@@ -4,5 +4,8 @@ import validate from "./validate.js";
 import managment from "./managment.js";
 
 export default {
-    successful, clean, validate, managment
+    successful,
+    clean,
+    validate,
+    managment
 };

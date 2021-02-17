@@ -1,5 +1,5 @@
 export default {
-    url: 'http://xjssjipu-m1.wsr.ru/api',
+    url: 'http://dzygkihn-m2.wsr.ru/api',
     profile: {
         phone: `${ getRandomInt(80000000000, 89999999999) }`,
         password: 'mysecretpassword',
@@ -14,7 +14,7 @@ export default {
         code: 'V3O2M',
         passenger_id: 1,
         left_code: 'FINJ6',
-        place: getRandomInt(1,9) + 'A'
+        place: getRandomInt(1,9) + 'Q'
     }
 };
 

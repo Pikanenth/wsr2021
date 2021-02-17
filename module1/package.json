@@ -1,0 +1,13 @@
+{
+  "name": "module1",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.5",
+    "consola": "^2.15.3"
+  }
+}

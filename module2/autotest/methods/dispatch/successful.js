@@ -78,6 +78,6 @@ export default async () => {
         log.success('Поиск поездок. A8S2 Successful. Correct body');
 
     } catch (e) {
-        log.error('Поиск поездок. A8S2 Successful. Correct body');
+        log.error('Поиск поездок. A8S2 Successful. Correct body', e);
     }
 };

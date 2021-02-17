@@ -16,7 +16,7 @@ export default async () => {
 
     try {
 
-        let response = await axios.get(`${ url }/user`);
+        let response = await axios.get(`${ url }/user/booking`);
 
         data = {
             status: response.status,
